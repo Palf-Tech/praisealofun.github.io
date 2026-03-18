@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praise Tolulope Alofun — Cloud Identity Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #06090f;
+    --bg2: #0c1220;
+    --surface: #111827;
+    --border: #1e2d45;
+    --accent: #3b82f6;
+    --accent2: #06b6d4;
+    --gold: #f59e0b;
+    --text: #e8edf5;
+    --muted: #6b7fa3;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    backdrop-filter: blur(20px);
+    background: rgba(6,9,15,0.7);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--white);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 4rem;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 20%;
+    right: -10%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-glow2 {
+    position: absolute;
+    bottom: 0;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .badge-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -2px;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+
+  h1 .line2 {
+    display: block;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s ease 0.3s both;
+  }
+
+  .btn-primary {
+    padding: 0.85rem 2rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover { background: #2563eb; transform: translateY(-1px); box-shadow: 0 8px 25px rgba(59,130,246,0.35); }
+
+  .btn-outline {
+    padding: 0.85rem 2rem;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-stats {
+    position: absolute;
+    right: 4rem;
+    bottom: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 2;
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    min-width: 130px;
+  }
+
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.2rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTIONS */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -1px;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-divider {
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    margin-bottom: 3rem;
+  }
+
+  /* ABOUT */
+  .about { padding: 7rem 0; background: var(--bg2); border-top: 1px solid var(--border); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+    font-size: 1rem;
+  }
+
+  .about-text p strong { color: var(--text); font-weight: 500; }
+
+  /* SKILLS */
+  .skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .skill-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .skill-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+  }
+
+  .skill-name { color: var(--text); font-weight: 500; }
+  .skill-pct { color: var(--accent); font-weight: 600; }
+
+  .skill-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    border-radius: 2px;
+    transition: width 1s ease;
+  }
+
+  /* EXPERIENCE */
+  .experience { padding: 7rem 0; }
+
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent), var(--accent2), transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    padding: 1.8rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .timeline-item:hover {
+    border-color: rgba(59,130,246,0.35);
+    transform: translateX(4px);
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -2.9rem;
+    top: 1.8rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+  }
+
+  .timeline-dot.current {
+    background: var(--gold);
+    box-shadow: 0 0 0 3px rgba(245,158,11,0.2);
+    animation: pulse 2s ease infinite;
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.3rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .job-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .job-badge {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(245,158,11,0.1);
+    color: var(--gold);
+    border: 1px solid rgba(245,158,11,0.2);
+    border-radius: 100px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .job-company {
+    font-size: 0.88rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+
+  .job-date {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .job-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .job-bullets li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    padding-left: 1.1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .job-bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* COMPETENCIES */
+  .competencies { padding: 7rem 0; background: var(--bg2); border-top: 1px solid var(--border); }
+
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .comp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.8rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .comp-card:hover {
+    border-color: rgba(59,130,246,0.35);
+    transform: translateY(-3px);
+  }
+
+  .comp-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(59,130,246,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .comp-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .comp-desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* CERTS */
+  .certifications { padding: 7rem 0; }
+
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .cert-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.3rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s;
+  }
+
+  .cert-card:hover { border-color: rgba(59,130,246,0.35); }
+
+  .cert-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .cert-name {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  /* AWARDS */
+  .awards { padding: 4rem 0 7rem; }
+
+  .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .award-card {
+    background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(245,158,11,0.03));
+    border: 1px solid rgba(245,158,11,0.18);
+    border-radius: 12px;
+    padding: 1.8rem;
+    text-align: center;
+  }
+
+  .award-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+
+  .award-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1.4;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 7rem 0;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .contact .section-label, .contact .section-title, .contact p { text-align: center; }
+  .contact .section-divider { margin: 0 auto 2rem; }
+
+  .contact p {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 0 1.5rem; padding-top: 5rem; }
+    .hero-stats { display: none; }
+    .container { padding: 0 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    h1 { font-size: 2.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">PA<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Available for Full-Time Roles
+    </div>
+    <h1>
+      Praise Alofun<br>
+      <span class="line2">Tolulope</span>
+    </h1>
+    <p class="hero-sub">
+      Cloud Identity Engineer specializing in <strong>Microsoft 365</strong>, <strong>Azure Identity</strong>, and enterprise-scale automation. 3+ years building secure, resilient cloud environments across global organizations.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get in Touch →</a>
+      <a href="#experience" class="btn-outline">View Experience</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card">
+      <span class="stat-number">3+</span>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">1.8M+</span>
+      <div class="stat-label">Users Supported</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">3</span>
+      <div class="stat-label">Global Regions</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-label">About Me</div>
+        <div class="section-title">Engineering identity at enterprise scale</div>
+        <div class="section-divider"></div>
+        <p>I'm a <strong>Tier 3 Cloud Identity Engineer</strong> with over 3 years of hands-on experience supporting and optimizing Microsoft 365 and Azure environments at enterprise scale.</p>
+        <p>My expertise spans <strong>Azure AD/Entra, Exchange Online, Security & Compliance</strong>, and identity automation using PowerShell and Microsoft Graph API — delivering solutions that are both technically sound and operationally seamless.</p>
+        <p>From managing 1.8M+ student records to leading global engineering teams across <strong>EMEA, NOAM, and APGC</strong> regions, I bring calm precision and a passion for continuous improvement to every challenge.</p>
+        <p>I hold <strong>MS-102</strong> and <strong>SC-300</strong> Microsoft certifications and have been recognized with the <strong>Technical Excellence Award</strong> from Microsoft SCIM.</p>
+      </div>
+      <div class="skills-grid reveal" id="skills">
+        <div class="section-label" style="margin-bottom:1.2rem;">Core Skills</div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">Azure AD / Entra ID</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">Microsoft 365 / Exchange Online</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">PowerShell Scripting</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">Microsoft Graph API</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">Security & Compliance</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">Power BI / Log Analysis</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">Windows Server / Active Directory</span><span class="skill-pct">82%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-meta"><span class="skill-name">AWS Cloud</span><span class="skill-pct">70%</span></div>
+          <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETENCIES -->
+<section class="competencies">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">What I Do</div>
+      <div class="section-title">Core Competencies</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="comp-grid">
+      <div class="comp-card reveal">
+        <div class="comp-icon">☁️</div>
+        <div class="comp-title">Cloud & Identity Management</div>
+        <div class="comp-desc">Microsoft 365, Azure AD/Entra, Office 365 Identity, Exchange Online, AAD Connect — full-stack cloud identity at enterprise scale.</div>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-icon">⚙️</div>
+        <div class="comp-title">Automation & Reporting</div>
+        <div class="comp-desc">PowerShell scripting, Microsoft Graph API, Power BI dashboards, and log analysis to automate workflows and surface insights.</div>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-icon">🔒</div>
+        <div class="comp-title">Security & Compliance</div>
+        <div class="comp-desc">Microsoft Security & Compliance Center, Conditional Access, MFA, SSPR, and email authentication configuration.</div>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-icon">🖥️</div>
+        <div class="comp-title">System Administration</div>
+        <div class="comp-desc">Windows Server, Active Directory, and Identity Protection for robust, reliable enterprise infrastructure management.</div>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-icon">🌍</div>
+        <div class="comp-title">Global Support Operations</div>
+        <div class="comp-desc">Enterprise-grade L2/L3 support across EMEA, NOAM, and APGC regions with high-volume ticket resolution and escalation management.</div>
+      </div>
+      <div class="comp-card reveal">
+        <div class="comp-icon">👥</div>
+        <div class="comp-title">Technical Leadership</div>
+        <div class="comp-desc">Leading engineering teams, mentoring engineers, producing runbooks, and coordinating with global stakeholders for seamless operations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Career History</div>
+      <div class="section-title">Professional Experience</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot current"></div>
+        <div class="job-header">
+          <div class="job-title">Technical Lead – Azure & Office 365 Identity</div>
+          <div class="job-badge">Current</div>
+        </div>
+        <div class="job-company">TeKnowledge (Formerly Tek-Experts)</div>
+        <div class="job-date">March 2024 – Present · Lagos, Nigeria</div>
+        <ul class="job-bullets">
+          <li>Lead a team of engineers to resolve complex identity and cloud service issues</li>
+          <li>Provide technical guidance for Level 2 and 3 escalations and mentorship across global teams</li>
+          <li>Troubleshoot and automate identity provisioning and license assignment via Microsoft Graph API</li>
+          <li>Diagnose and resolve sync issues related to Azure AD Connect and hybrid identity scenarios</li>
+          <li>Generate reports using Power BI and communicate solutions across global administrative teams</li>
+          <li>Produce detailed technical documentation and runbooks for incident and issue management</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="job-title">Technical Support L3 – Azure, Exchange & Identity Solutions</div>
+        <div class="job-company">TeKnowledge (Formerly Tek-Experts)</div>
+        <div class="job-date">January 2024 – March 2024 · Lagos, Nigeria</div>
+        <ul class="job-bullets">
+          <li>Resolved complex issues regarding Azure AD/Entra, Identity and Access Management, Authentication</li>
+          <li>Automated license provisioning and directory troubleshooting via Microsoft Graph PowerShell</li>
+          <li>Supported cloud governance and compliance by reviewing and resolving escalated tickets</li>
+          <li>Collaborated with global admins and technical leads via calls, email, and chat for rapid resolution</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="job-title">Technical Support Engineer L2 – M365, Exchange, Security & Compliance</div>
+        <div class="job-company">TeKnowledge (Formerly Tek-Experts)</div>
+        <div class="job-date">February 2023 – December 2023 · Lagos, Nigeria</div>
+        <ul class="job-bullets">
+          <li>Provided Level 2 support across EMEA, NOAM, and APGC regions on Outlook, Exchange Online, Security, Compliance, and Identity</li>
+          <li>Automated user management tasks and improved resolution workflows using PowerShell</li>
+          <li>Resolved mail flow, email authentication, security, roles and permission issues in Microsoft 365</li>
+          <li>Documented support resolutions and coordinated closely with engineering teams</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="job-title">IT Support Specialist</div>
+        <div class="job-company">Digital Pulse Technologies</div>
+        <div class="job-date">August 2021 – January 2023 · Lagos, Nigeria</div>
+        <ul class="job-bullets">
+          <li>Managed 1.8M+ student technical complaints during UTME registration with high resolution accuracy</li>
+          <li>Handled escalations from Major Network Operators (MNOs) on mobile numbers linked to UTME</li>
+          <li>Installed and configured NIMC application on 1,000+ electronic devices for optimal performance</li>
+          <li>Performed functional testing to validate application optimization on deployed devices</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="job-title">Junior Frontend Developer (Internship)</div>
+        <div class="job-company">Digital Pulse Technologies</div>
+        <div class="job-date">July 2019 – December 2019 · Lagos, Nigeria</div>
+        <ul class="job-bullets">
+          <li>Built tribute pages, survey forms, and product landing pages using HTML, CSS, and JavaScript</li>
+          <li>Completed frontend courses via freeCodeCamp and a nano-degree program</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certifications" id="certifications">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Credentials</div>
+      <div class="section-title">Certifications & Education</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="certs-grid reveal">
+      <div class="cert-card">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-name">MS-102: Microsoft 365 Administrator</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🔐</div>
+        <div class="cert-name">SC-300: Microsoft Identity and Access Administrator</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">☁️</div>
+        <div class="cert-name">AWS Cloud Practitioner Essentials</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">💻</div>
+        <div class="cert-name">Career Essentials in System Administration – Microsoft & LinkedIn</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🤝</div>
+        <div class="cert-name">Jobberman Soft-Skills Certificate</div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-name">B.Tech, Computer Engineering — LAUTECH, Oyo State</div>
+      </div>
+    </div>
+
+    <!-- AWARDS -->
+    <div style="margin-top: 4rem;" class="reveal">
+      <div class="section-label">Recognition</div>
+      <div class="section-title" style="margin-bottom:0.5rem;">Awards</div>
+      <div class="section-divider"></div>
+    </div>
+    <div class="awards-grid reveal">
+      <div class="award-card">
+        <span class="award-icon">🏆</span>
+        <div class="award-title">Technical Excellence Award<br><span style="color:var(--muted);font-weight:400;font-size:0.82rem;">Microsoft SCIM</span></div>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">🎖️</span>
+        <div class="award-title">Certificate of Recognition<br><span style="color:var(--muted);font-weight:400;font-size:0.82rem;">Microsoft & Tek Experts</span></div>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">💡</span>
+        <div class="award-title">Innovation Driver Award<br><span style="color:var(--muted);font-weight:400;font-size:0.82rem;">TeKnowledge (Formerly Tek-Experts)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Let's Connect</div>
+      <div class="section-title">Ready to bring cloud excellence<br>to your team</div>
+      <div class="section-divider"></div>
+      <p>Open to full-time Cloud Infrastructure, Azure Identity, or Microsoft 365 Engineering roles. Available for remote, hybrid, or relocation.</p>
+    </div>
+    <div class="contact-links reveal">
+      <a href="mailto:alofunpraise@gmail.com" class="contact-link">
+        <span>✉️</span> alofunpraise@gmail.com
+      </a>
+      <a href="tel:07069364084" class="contact-link">
+        <span>📞</span> 07069364084
+      </a>
+      <a href="http://www.linkedin.com/in/praisealofun-4a8765143" target="_blank" class="contact-link">
+        <span>💼</span> LinkedIn Profile
+      </a>
+      <a href="#" class="contact-link">
+        <span>📍</span> Lagos, Nigeria
+      </a>
+    </div>
+    <div class="reveal">
+      <a href="https://mail.google.com/mail/?view=cm&to=alofunpraise@gmail.com&su=Job%20Opportunity%20-%20Cloud%20Identity%20Engineer" target="_blank" class="btn-primary" style="font-size:1rem; padding: 1rem 2.5rem;">
+        Send me a message →
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Praise Alofun Tolulope· Cloud Identity Engineer · Built with precision</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Animate skill bars on scroll
+  const skillFills = document.querySelectorAll('.skill-fill');
+  const skillWidths = Array.from(skillFills).map(el => el.style.width);
+  skillFills.forEach(el => el.style.width = '0');
+
+  const skillObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      skillFills.forEach((el, i) => {
+        setTimeout(() => { el.style.width = skillWidths[i]; }, i * 100);
+      });
+      skillObserver.disconnect();
+    }
+  }, { threshold: 0.3 });
+
+  const skillSection = document.querySelector('#skills');
+  if (skillSection) skillObserver.observe(skillSection);
+
+  // Nav active state
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--white)' : '';
+    });
+  });
+</script>
+</body>
+</html>
